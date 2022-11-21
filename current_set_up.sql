@@ -43,16 +43,29 @@ insert into BLOODTYPE(id_Bloodtype, bType) values (8, 'AB-');
 
 insert into DONOR(id_Donor, Bloodtype_id, Lst_Donation, Pers_Info, Date_Start) 
 values (101, 5, '2022-10-31', 'Likes Chocolate', '2020-1-1');
+insert into DONOR(id_Donor, Bloodtype_id, Lst_Donation, Pers_Info, Date_Start) 
+values (102, 3, '2021-8-20', 'Partied too hard on the eve of the new millennium', '1999-12-31');
+insert into DONOR(id_Donor, Bloodtype_id, Lst_Donation, Pers_Info, Date_Start) 
+values (103, 4, null, 'Worked for JP Morgan', '2007-9-27');
 
 insert into BLOODBAG(id_BLoodBag, Donor_Id, Retr_Date) values (1, 101, '2022-10-1');
 insert into BLOODBAG(id_BloodBag, Donor_Id, Retr_Date) values(2, 101, '2022-10-31');
+insert into BLOODBAG(id_Bloodbag, Donor_Id, Retr_Date) values(3, 102, '2005-2-2');
+insert into BLOODBAG(id_Bloodbag, Donor_Id, Retr_Date) values(4, 102, '2021-8-20');
+insert into bloodbag(id_Bloodbag, Donor_id, Retr_date) values(5, 101, '2022-10-15');
 
 insert into Bank(id_Bank, Location, Open_Date) values (1, '1012 Spooky Drive, Howl Michigan', '1856-10-31');
+insert into Bank(id_Bank, Location, Open_Date) values (2, '456 Dead Road, Hell Michigan', '1913-8-15');
 
 insert into INVENTORY(Bloodbag_id, Bank_id) values (2, 1);
+insert into INVENTORY(bloodbag_id, Bank_id) values (3, 2);
+insert into INVENTORY(bloodbag_id, Bank_id) values (4, 2);
 
 insert into VAMPIRE(id_Vampire, FName, LName) values(101, 'Michael', 'Morbius');
+insert into VAMPIRE(id_Vampire, FName, LName) values(102, 'John', 'Jonhston');
 
 insert into VACCOUNT(id_Account, Vampire_id, allowance, Create_Date) values (1, 101, 3, '2022-4-1');
+insert into VACCOUNT(id_Account, Vampire_id, allowance, Create_Date, preference) values (2, 102, 5, '1988-6-21', 2);
 
 insert into TRANSACTION(Account_id, Bloodbag_id, TDate) values (1, 1, '2022-10-30');
+insert into Transaction(Account_id, Bloodbag_id, TDate) values (2, 5, '2023-1-4');
