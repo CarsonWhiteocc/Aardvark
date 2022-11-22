@@ -1,6 +1,6 @@
-create database test;
+create database phase1;
 
-use test;
+use phase1;
 
 create table BLOODTYPE (id_Bloodtype int, bType varchar(3) not null, 
 primary key (id_Bloodtype));
@@ -12,7 +12,7 @@ create table VAMPIRE(id_Vampire int, FName varchar(45) not null,
 LName varchar(45) not null, primary key (id_Vampire));
 
 create table DONOR(id_Donor int, Bloodtype_id int not null, Lst_Donation Date, 
-Pers_Info varchar(45) not null, Date_Start Date not null, primary key (id_Donor), 
+Pers_Info varchar(100) not null, Date_Start Date not null, primary key (id_Donor), 
 foreign key (Bloodtype_id) references BLOODTYPE(id_Bloodtype));
 
 create table BLOODBAG(id_BloodBag int, Donor_Id int not null, Retr_Date Date not null, 
