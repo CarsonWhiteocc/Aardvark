@@ -16,7 +16,7 @@ public class Backend
         {
             con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/?user=root", "root", 
-                "carson2k"/*Whatever password you use for your sql server*/);
+                ""/*Whatever password you use for your sql server*/);
             Statement s = con.createStatement();
             s.executeQuery("use phase1");
         }
