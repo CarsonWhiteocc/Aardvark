@@ -5,31 +5,18 @@
 package aardvarkdb;
 
 import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.TableView;
-import javafx.scene.layout.VBox;
+import static javafx.application.Application.launch;
 import javafx.stage.Stage;
 
 public class AardvarkDB extends Application
 {
-    public static void main(String[] args) 
+    @Override
+    public void start(Stage s)
+    {
+        LoginView lv = new LoginView(s);
+    }
+    public static void main(String[] args)
     {
         launch(args);
-    }
-
-    @Override
-    public void start(Stage primaryStage) 
-    {
-        Middleware mw = new Middleware();
-        
-        TableView tb = mw.viewTable("Vampire");
-
-        VBox vbox = new VBox(tb);
-
-        Scene scene = new Scene(vbox);
-
-        primaryStage.setScene(scene);
-
-        primaryStage.show();
     }
 }

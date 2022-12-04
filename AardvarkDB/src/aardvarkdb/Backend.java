@@ -16,7 +16,7 @@ public class Backend
         {
             con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/?user=root", "root", 
-                ""/*Whatever password you use for your sql server*/);
+                "carson2k"/*Whatever password you use for your sql server*/);
             Statement s = con.createStatement();
             s.executeQuery("use phase1");
         }
@@ -36,6 +36,24 @@ public class Backend
         {
             System.out.println("Could not handle query");
             return null;
+        }
+    }
+    public void updateQuery(String[] queries)
+    {
+        try
+        {
+            Statement s = con.createStatement();
+            s.executeQuery("Start Transaction");
+            for (int i = 0; i < queries.length; i++) 
+            {
+                s.addBatch(queries[i]);
+            }
+            s.executeBatch();
+            s.executeQuery("Commit");
+        }
+        catch(Exception e)
+        {
+            System.out.println("Could not update query");
         }
     }
 }
